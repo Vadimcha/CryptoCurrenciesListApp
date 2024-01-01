@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:some_app/repositories/crypto_coins/crypto_coins_repository.dart';
 
 import '../widgets/crypto_coin_tile.dart';
 
@@ -29,6 +30,14 @@ class _CryptoListScreenState extends State<CryptoListScreen> {
         itemBuilder: (context, i) {
           const coinName = 'Bitcoin';
           return const CryptoCoinTile(coinName: coinName);
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(
+          Icons.download,
+        ),
+        onPressed: () {
+          CryptoCoinsRepository().getCoinsList();
         },
       ),
     );
